@@ -1,18 +1,44 @@
 @media only screen and (max-width: 740px) {
-body {
 
-	display: inline;
-}
-#wrapper { background: #f77; }
+header img {
+
+margin-left: auto;
+margin-right: auto;
+float: none;
+ } 
+#wrapper { 
+
+background: pink;
+float :right;
+width:100%;
+ }
 }
 
 @media only screen and (max-width: 570px) {
+header img {
 
-#wrapper { background: #7f7; }
+margin-left: auto;
+margin-right: auto;
+float: none;
+ } 	
+
+#wrapper { background: red;width:100%; }
 
 }
 
 @media only screen (max-width: 480px) {
+header img {
 
-	#wrapper { background: #f77f; }
+margin-left: auto;
+margin-right: auto;
+float: none;
+ } 
+
+	#wrapper {
+
+	 background: red;
+
+	  width:100%;
+
+	}
 }
