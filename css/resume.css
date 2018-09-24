@@ -15,9 +15,9 @@ body {
 	color:#777;
 }
 
-#profile {
+header img {
     float: right;
-	border: 1px;
+	border: 1px solid transparent;
 	border-color: #ccc;
 	border-radius: 3px;
 	background-color: white;
