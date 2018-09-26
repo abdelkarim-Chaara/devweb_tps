@@ -1,40 +1,36 @@
 @media only screen and (max-width: 740px) {
 
-header img {
+ img {
 
-margin-left: auto;
-margin-right: auto;
-float: none;
- } 
+ 	float:right;
+ }
+
 #wrapper { 
 
 background: pink;
-float :right;
 width:100%;
  }
 }
 
 @media only screen and (max-width: 570px) {
-header img {
 
-margin-left: auto;
-margin-right: auto;
-float: none;
- } 	
+img { float: none; }
 
-#wrapper { background: red;width:100%; }
+#wrapper { 
+	float: right;
+	background: blue;
+	width:100%;
+
+ }
 
 }
 
 @media only screen (max-width: 480px) {
-header img {
 
-margin-left: auto;
-margin-right: auto;
-float: none;
- } 
+
 
 	#wrapper {
+		display: initial;
 
 	 background: red;
 
