@@ -14,6 +14,7 @@
 <![endif]-->
 <link rel="stylesheet" type="text/css" href="css/resume.css"/>
 <link rel="stylesheet" type="text/css" href="css/responsive.css">
+
 <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <script src="//use.edgefonts.net/cabin.js"></script>
@@ -47,6 +48,98 @@
 }
 </style>
 
+<script> 
+
+/*	
+	function progressiveFonts(a ) { 
+
+  var interval = setInterval(function(){  a.style.font-size+=2; }, 1000);
+
+    //setTimeout(interval, 1000);
+
+
+
+	}
+	*/
+
+
+	//test big font func 
+
+
+	function bigfont (fontsize) {
+
+var size = document.getElementById('header');
+
+var i =0;
+while(fontsize > i) {
+i++;
+size.style.fontSize = i + "px";
+
+}
+
+
+	}
+
+function showdetails () {
+	
+	var h = document.getElementById('header');
+
+	var s = document.getElementById('competances');
+
+    var l = document.getElementById('Linguistiques');
+
+    var style = window.getComputedStyle(s, null).getPropertyValue('font-size');
+    var currentSize = parseInt(style);
+
+
+// check if another section is shown to hide it 
+   if (l.style.display=="inline") {
+l.style.display="none";
+
+   }
+
+//check if competence sectio is hidden if it is show it 
+if (s.style.display=="none") {
+
+	s.style.display="inline";
+
+//setTimeout(setInterval(bigfont(currentSize),1000),5000);
+
+	
+} else {
+
+
+	s.style.display="none";
+}
+
+}
+
+function showLangs () {
+
+var s = document.getElementById('Linguistiques');
+    var l = document.getElementById('competances');
+
+if (l.style.display=="inline") {
+l.style.display="none";
+
+    }
+
+if (s.style.display=="none") {
+
+	s.style.display="inline";
+} else {
+
+
+	s.style.display="none";
+}
+
+
+}
+
+
+
+</script>
+
 </head>
 <body bgcolor:#777>
 
@@ -64,7 +157,7 @@
 </header>
 <div id="wrapper">
 
-	<section name="presentation general ">
+	<section name="presentation general " id="presentation">
 		
 <article> Je M'appel Chaara Abdelkarim ,  Ex-Security Consultant </article>
 <br>
@@ -74,30 +167,32 @@
 	<section name="Experience Professionnel">
 		<article>
 			
-			Mes Competances : 
+			Mes Competances : <button type="button" onclick="showdetails();">details</button>
+<br/>
+			<dl id="competances" style="display: inline;" > 
+<br/>
+	<dt data-tooltip="je dors plusieur fois chaque jour et c'est impeccable"> Sleeping</dt> 
+	<br/>		
+			<dt data-tooltip="Je kiffe le café"> Drinking coffee</dt>
+			<br/>
+			<dt data-tooltip="Joue des jeux Online c'est une opportunité que on doit pas raté "  > Playing Games</dt>
 
-			<dl>  <dt> Sleeping</dt>
-				<dd> je dors plusieur fois chaque jour et c'est impeccable </dd>
-			<dt> Drinking coffee</dt>
-			<dd> Je kiffe le café </dd>
-			<dt> Playing Games</dt>
-			<dd> Joue des jeux Online c'est une opportunité que on doit pas raté </dd>
-
+</dl>
 			<br>
 
-				Linguistique : 
+				Linguistiquess : <button type="button" onclick="showLangs();">details</button>
 
-			<dl> 
-		     <dt> Arabic 
-			 <dt>Francais</dt>
-			 <dt> English</dt>
+			<dl id="Linguistiques" style="display: none;" > 
+		     <dt style="margin-top: 5px" data-tooltip="maternelle langage"> Arabic </dt>
+			 <dt style="margin-top: 5px" data-tooltip="Niveau B2">Francais</dt>
+			 <dt style="margin-top: 5px" data-tooltip="Niveau B2"> English</dt>
 			</dl>
 
 		</article>
 
 	</section>
 
-
+<br><br>
 <footer>
 	
 	<a class="fa fa-facebook" href="https://fb.com"> </a>
