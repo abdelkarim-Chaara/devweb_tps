@@ -17,7 +17,6 @@
 
 <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<script src="//use.edgefonts.net/cabin.js"></script>
 
 <style>
 .fa {
@@ -68,29 +67,34 @@
 
 	function bigfont (fontsize) {
 
-var size = document.getElementById('header');
+var size = document.getElementById('presentation');
+setTimeout(setInterval(function () { 
 
 var i =0;
 while(fontsize > i) {
 i++;
-size.style.fontSize = i + "px";
+//size.style.fontSize = i + "px";
+size.style.height = i + "px";
 
 }
+} ,1000),5000);
+
 
 
 	}
 
 function showdetails () {
 	
-	var h = document.getElementById('header');
+	var h = document.getElementsByClassName('header')[0];
+	var p = document.getElementsByClassName('presentation')[0];
 
-	var s = document.getElementById('competances');
+	var s = document.getElementsByClassName('competances')[0];
 
-    var l = document.getElementById('Linguistiques');
+    var l = document.getElementsByClassName('Linguistiques')[0];
 
-    var style = window.getComputedStyle(s, null).getPropertyValue('font-size');
+    var style = window.getComputedStyle(p, null).getPropertyValue('height');
     var currentSize = parseInt(style);
-
+console.log(currentSize);
 
 // check if another section is shown to hide it 
    if (l.style.display=="inline") {
@@ -103,7 +107,9 @@ if (s.style.display=="none") {
 
 	s.style.display="inline";
 
-//setTimeout(setInterval(bigfont(currentSize),1000),5000);
+bigfont(currentSize);
+
+//setTimeout(setInterval(bigfont(currentSize),2000),10000);
 
 	
 } else {
@@ -116,8 +122,9 @@ if (s.style.display=="none") {
 
 function showLangs () {
 
-var s = document.getElementById('Linguistiques');
-    var l = document.getElementById('competances');
+var s = document.getElementsByClassName('Linguistiques')[0];
+var l = document.getElementsByClassName('competances')[0];
+
 
 if (l.style.display=="inline") {
 l.style.display="none";
@@ -136,17 +143,39 @@ if (s.style.display=="none") {
 
 }
 
+function starts () {
+
+
+
+
+const ratings = {
+  francais : 2,
+  english : 2,
+  arabic : 3,
+  
+};
+
+// total number of stars
+var starTotal = 3;
+
+for (var rating in ratings) {
+  var starPercentage = ratings[rating] / starTotal * 100;
+  var starPercentageRounded = Math.round(starPercentage / 10) * 10 + "%";
+  document.querySelector("." + rating + " .stars-inner").style.width = starPercentageRounded;
+}
+
+}
 
 
 </script>
 
 </head>
-<body bgcolor:#777>
+<body bgcolor:#777 >
 
 <div itemscope itemtype="https://schema.org/Person">
 	
 
-<header id="header">
+<header id="header" class="header" >
 	
 
 <h1 itemprop="familyName">  Chaara  </h1>
@@ -157,7 +186,7 @@ if (s.style.display=="none") {
 </header>
 <div id="wrapper">
 
-	<section name="presentation general " id="presentation">
+	<section name="presentation general " class="presentation" id="presentation">
 		
 <article> Je M'appel Chaara Abdelkarim ,  Ex-Security Consultant </article>
 <br>
@@ -169,7 +198,7 @@ if (s.style.display=="none") {
 			
 			Mes Competances : <button type="button" onclick="showdetails();">details</button>
 <br/>
-			<dl id="competances" style="display: inline;" > 
+			<dl class="competances" style="display: inline;" > 
 <br/>
 	<dt data-tooltip="je dors plusieur fois chaque jour et c'est impeccable"> Sleeping</dt> 
 	<br/>		
@@ -182,10 +211,20 @@ if (s.style.display=="none") {
 
 				Linguistiquess : <button type="button" onclick="showLangs();">details</button>
 
-			<dl id="Linguistiques" style="display: none;" > 
-		     <dt style="margin-top: 5px" data-tooltip="maternelle langage"> Arabic </dt>
-			 <dt style="margin-top: 5px" data-tooltip="Niveau B2">Francais</dt>
-			 <dt style="margin-top: 5px" data-tooltip="Niveau B2"> English</dt>
+			<dl class="Linguistiques" style="display: none;" > 
+		     <dt class="arabic" style="margin-top: 5px" data-tooltip="maternelle langage"> Arabic
+        <div class="stars-outer">
+        <div class="stars-inner"> </div></div>
+        </dt>
+			 <dt class="francais" style="margin-top: 5px" data-tooltip="Niveau B2">Francais
+			 		         <div class="stars-outer">
+        <div class="stars-inner"> </div></div>
+</dt>
+			 <dt class="english" style="margin-top: 5px" data-tooltip="Niveau B2"> English
+
+			      <div class="stars-outer">
+        <div class="stars-inner"> </div></div>
+        </dt>
 			</dl>
 
 		</article>

@@ -61,7 +61,7 @@ header img {
 /* Position tooltip above the element */
 [data-tooltip]:before {
   position: absolute;
-  
+
   bottom: 10%;
   left: 40%;
   margin-bottom: 5px;
@@ -83,8 +83,8 @@ header img {
 /* Triangle hack to make tooltip look like a speech bubble */
 [data-tooltip]:after {
   position: absolute;
-  bottom: 150%;
-  left: 50%;
+  bottom: 10%;
+  left: 40%;
   margin-left: -5px;
   width: 0;
   border-top: 5px solid #000;
@@ -103,4 +103,32 @@ header img {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
+}
+
+
+//stars
+
+
+.stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+}
+
+.stars-outer::before {
+  content: "\2605";;
+}
+
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+.stars-inner::before {
+  content: "\2605";
+  color: #f8ce0b;
 }
