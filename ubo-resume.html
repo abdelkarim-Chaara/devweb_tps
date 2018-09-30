@@ -49,35 +49,23 @@
 
 <script> 
 
-/*	
-	function progressiveFonts(a ) { 
-
-  var interval = setInterval(function(){  a.style.font-size+=2; }, 1000);
-
-    //setTimeout(interval, 1000);
-
-
-
-	}
-	*/
-
 
 	//test big font func 
 
+var i =0;
+	function bigfont (fontsize,obj) {
 
-	function bigfont (fontsize) {
-
-var size = document.getElementById('presentation');
 setTimeout(setInterval(function () { 
 
-var i =0;
-while(fontsize > i) {
+
+if(fontsize >= i) {
+
+obj.style.fontSize = i + "px";
 i++;
-//size.style.fontSize = i + "px";
-size.style.height = i + "px";
+console.log(obj.style.fontSize);
 
 }
-} ,1000),5000);
+} ,100),3000);
 
 
 
@@ -86,15 +74,11 @@ size.style.height = i + "px";
 function showdetails () {
 	
 	var h = document.getElementsByClassName('header')[0];
-	var p = document.getElementsByClassName('presentation')[0];
-
+	var d = document.getElementsByClassName('desc')[0];
 	var s = document.getElementsByClassName('competances')[0];
-
     var l = document.getElementsByClassName('Linguistiques')[0];
-
-    var style = window.getComputedStyle(p, null).getPropertyValue('height');
+    var style = window.getComputedStyle(d, null).getPropertyValue('font-size');
     var currentSize = parseInt(style);
-console.log(currentSize);
 
 // check if another section is shown to hide it 
    if (l.style.display=="inline") {
@@ -102,14 +86,13 @@ l.style.display="none";
 
    }
 
-//check if competence sectio is hidden if it is show it 
+//check if lang sectio is hidden if it is show it 
 if (s.style.display=="none") {
 
 	s.style.display="inline";
 
-bigfont(currentSize);
+bigfont(currentSize,d);
 
-//setTimeout(setInterval(bigfont(currentSize),2000),10000);
 
 	
 } else {
@@ -125,15 +108,24 @@ function showLangs () {
 var s = document.getElementsByClassName('Linguistiques')[0];
 var l = document.getElementsByClassName('competances')[0];
 
+var style = window.getComputedStyle(s, null).getPropertyValue('font-size');
+var currentSize = parseInt(style);
 
 if (l.style.display=="inline") {
 l.style.display="none";
+
 
     }
 
 if (s.style.display=="none") {
 
-	s.style.display="inline";
+bigfont(currentSize,s);
+
+s.style.display="inline";
+
+	
+
+
 } else {
 
 
@@ -143,34 +135,13 @@ if (s.style.display=="none") {
 
 }
 
-function starts () {
-
-
-
-
-const ratings = {
-  francais : 2,
-  english : 2,
-  arabic : 3,
-  
-};
-
-// total number of stars
-var starTotal = 3;
-
-for (var rating in ratings) {
-  var starPercentage = ratings[rating] / starTotal * 100;
-  var starPercentageRounded = Math.round(starPercentage / 10) * 10 + "%";
-  document.querySelector("." + rating + " .stars-inner").style.width = starPercentageRounded;
-}
-
-}
 
 
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 </head>
-<body bgcolor:#777 >
+<body   >
 
 <div itemscope itemtype="https://schema.org/Person">
 	
@@ -184,7 +155,7 @@ for (var rating in ratings) {
 <img  itemprop="image" src="image.jpg" with="350" height="250" />
 <br/><br/>
 </header>
-<div id="wrapper">
+<div id="wrapper"> 
 
 	<section name="presentation general " class="presentation" id="presentation">
 		
@@ -198,46 +169,56 @@ for (var rating in ratings) {
 			
 			Mes Competances : <button type="button" onclick="showdetails();">details</button>
 <br/>
-			<dl class="competances" style="display: inline;" > 
+			<dl class="competances" style="display: none;" > 
 <br/>
-	<dt data-tooltip="je dors plusieur fois chaque jour et c'est impeccable"> Sleeping</dt> 
+<div class="desc"  style="font-size:18px">
+	<dt   data-tooltip="je dors plusieur fois chaque jour et c'est impeccable"> Sleeping</dt> 
 	<br/>		
-			<dt data-tooltip="Je kiffe le café"> Drinking coffee</dt>
+			<dt  data-tooltip="Je kiffe le café"> Drinking coffee</dt>
 			<br/>
-			<dt data-tooltip="Joue des jeux Online c'est une opportunité que on doit pas raté "  > Playing Games</dt>
-
+			<dt  data-tooltip="Joue des jeux Online c'est une opportunité que on doit pas raté "  > Playing Games</dt>
+</div>
 </dl>
-			<br>
+			<br><br><br>
 
 				Linguistiquess : <button type="button" onclick="showLangs();">details</button>
 
+
 			<dl class="Linguistiques" style="display: none;" > 
-		     <dt class="arabic" style="margin-top: 5px" data-tooltip="maternelle langage"> Arabic
-        <div class="stars-outer">
-        <div class="stars-inner"> </div></div>
-        </dt>
-			 <dt class="francais" style="margin-top: 5px" data-tooltip="Niveau B2">Francais
-			 		         <div class="stars-outer">
-        <div class="stars-inner"> </div></div>
-</dt>
-			 <dt class="english" style="margin-top: 5px" data-tooltip="Niveau B2"> English
 
-			      <div class="stars-outer">
-        <div class="stars-inner"> </div></div>
+<div class="lang">				
+		     <dt class="arabic" style="font-size:18px" data-tooltip="maternelle langage"> Arabic
+  
+        </dt><span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span><br><br>
+			 <dt class="francais" style="font-size:18px" data-tooltip="Niveau B2">Francais
+			
+</dt><span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span><br><br>
+			 <dt class="english" style="font-size:18px" data-tooltip="Niveau B2"> English
+
         </dt>
+        <span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span><br><br>
 			</dl>
-
+</div>
 		</article>
 
 	</section>
 
 <br><br>
+<center>
 <footer>
 	
-	<a class="fa fa-facebook" href="https://fb.com"> </a>
-	<a class="fa fa-instagram" href="https://instagram.com"> </a>
+	<a class="fa fa-facebook" href="https://fb.com/Abdelkarim.chaara"> </a>
+	<a class="fa fa-instagram" href="https://instagram.com/Abdelkarim.chaara"> </a>
 	<a class="fa fa-twitter" href="https://twitter.com"> </a>
 </footer>
+</center>
 </div>
 </div>
 </body>

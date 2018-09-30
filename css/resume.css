@@ -34,6 +34,10 @@ header img {
 
 }
 
+dt {
+
+  margin-top: 7px;
+}
 
 
 
@@ -44,7 +48,8 @@ header img {
 /* Add this attribute to the element that needs a tooltip */
 [data-tooltip] {
   position: relative;
-  z-index: 2;
+  z-index: 1000;
+
   cursor: pointer;
 }
 
@@ -54,7 +59,7 @@ header img {
   visibility: hidden;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
+  opacity: 22;
   pointer-events: none;
 }
 
@@ -62,11 +67,12 @@ header img {
 [data-tooltip]:before {
   position: absolute;
 
-  bottom: 10%;
-  left: 40%;
-  margin-bottom: 5px;
-  margin-left: -80px;
-  padding: 7px;
+  bottom: -180%;
+  left: 5%;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  margin-left: -50px;
+  padding: 5px;
   width: 160px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -76,25 +82,11 @@ header img {
   color: #fff;
   content: attr(data-tooltip);
   text-align: center;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.2;
 }
 
-/* Triangle hack to make tooltip look like a speech bubble */
-[data-tooltip]:after {
-  position: absolute;
-  bottom: 10%;
-  left: 40%;
-  margin-left: -5px;
-  width: 0;
-  border-top: 5px solid #000;
-  border-top: 5px solid hsla(0, 0%, 20%, 0.9);
-  border-right: 5px solid transparent;
-  border-left: 5px solid transparent;
-  content: " ";
-  font-size: 0;
-  line-height: 0;
-}
+
 
 /* Show tooltip content on hover */
 [data-tooltip]:hover:before,
@@ -109,26 +101,5 @@ header img {
 //stars
 
 
-.stars-outer {
-  display: inline-block;
-  position: relative;
-  font-family: FontAwesome;
-}
 
-.stars-outer::before {
-  content: "\2605";;
-}
 
-.stars-inner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 0;
-}
-
-.stars-inner::before {
-  content: "\2605";
-  color: #f8ce0b;
-}
